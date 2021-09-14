@@ -11,6 +11,7 @@ namespace Library_LAB2
         Node<string> root = new Node<string>();
         Node<string> search_node = new Node<string>();
         int flag = 0;
+        int flag_insert = 0;
         int count_node = 0;
         int n = 0;
         public void begin(string text)
@@ -40,9 +41,11 @@ namespace Library_LAB2
         void huffmanbegin()
         {
             flag = 0;
-            foreach(var entry in table)
+            foreach (var entry in table)
             {
-                insert(root, entry.Value);
+                count_node++;
+                flag_insert = 0;
+                insert(root, entry.Value, count_node);
             }
             buildheap(root);
         } 
@@ -65,8 +68,8 @@ namespace Library_LAB2
                 current.repetitions = temp2.repetitions;
                 current.probability = temp2.probability;
                 change_value(current);
-
-                // ya saca todos los valores... solo hay que ver como hacer los mini arbolitos que se van formando conforme sacamos los nodos
+                childheap.Push(temp);
+                //ya saca todos los valores... solo hay que ver como hacer los mini arbolitos que se van formando conforme sacamos los nodos
                 if (!childheap.Contains(temp))
                 {
                     if (childheap.Count == 0)
@@ -88,7 +91,7 @@ namespace Library_LAB2
                             temp3.heap_child_right = temp2;
                             temp3.number_heap = 1;
                             childheap.Push(temp3);
-                            insert(current, temp3);
+                            insert(current, temp3, count_node);
                         }
                     }
                 }
@@ -151,58 +154,43 @@ namespace Library_LAB2
                 }
             }
         }
-        void insert(Node<string> current, Node<string> node)
+        void insert(Node<string> reco, Node<string> node, int count)
         {
             if(flag == 0)
             {
-                count_node++;
                 root = node;
-                root.number_heap = count_node;
+                root.number_heap = count;
                 root.height = 0;
                 flag = 1;
             }
-            else if (current.child_left == default)
+            else if (reco != null)
             {
-                count_node++;
-                node.father = current;
-                node.father.count_child = node.father.count_child + 1;
-                node.height = node.father.height + 1;
-                current.child_left = node;
-                current.child_left.number_heap = count_node;
-                if(current != null)
-                order_tree(current.child_left, current);
-            }
-            else if (current.child_right == default)
-            {
-                count_node++;
-                node.father = current;
-                current.child_right = node;
-                node.height = node.father.height + 1;
-                node.father.count_child = node.father.count_child + 1;
-                current.child_right.number_heap = count_node;
-                if (current != null);
-                order_tree(current.child_right, current);
-            }
-            else
-            {
-                if(current.child_left.count_child < 2)
+                if (reco.child_left != null && reco.child_right == null)
                 {
-                    insert(current.child_left, node);
+                    flag_insert = 1;
+                    node.father = reco;
+                    reco.child_right = node;
+                    node.height = node.father.height + 1;
+                    node.father.count_child = node.father.count_child + 1;
+                    reco.child_right.number_heap = count_node;
+                    if (reco != null) ;
+                        order_tree(reco.child_right, reco);
                 }
-                else if (current.child_right.count_child < 2)
+                else if((reco.number_heap * 2) == count)
                 {
-                    insert(current.child_right, node);
+                    flag_insert = 1;
+                    node.father = reco;
+                    node.father.count_child = node.father.count_child + 1;
+                    node.height = node.father.height + 1;
+                    reco.child_left = node;
+                    reco.child_left.number_heap = count_node;
+                    if (reco != null)
+                        order_tree(reco.child_left, reco);
                 }
-                else
+                if (reco != null && flag_insert == 0)
                 {
-                    if(Math.Pow(current.height, 2)/2 < count_node)
-                    {
-                        insert(current.child_left, node);
-                    }
-                    else
-                    {
-                        insert(current.child_right, node);
-                    }
+                    insert(reco.child_left, node, count);
+                    insert(reco.child_right, node, count);
                 }
             }
         }
