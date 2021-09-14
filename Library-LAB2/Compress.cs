@@ -68,7 +68,6 @@ namespace Library_LAB2
                 current.repetitions = temp2.repetitions;
                 current.probability = temp2.probability;
                 change_value(current);
-                childheap.Push(temp);
                 //ya saca todos los valores... solo hay que ver como hacer los mini arbolitos que se van formando conforme sacamos los nodos
                 if (!childheap.Contains(temp))
                 {
@@ -89,8 +88,10 @@ namespace Library_LAB2
                             temp3.probability = temp.probability + temp2.probability;
                             temp3.heap_child_left = temp;
                             temp3.heap_child_right = temp2;
-                            temp3.number_heap = 1;
                             childheap.Push(temp3);
+                            count_node++;
+                            temp3.number_heap = count_node;
+                            flag_insert = 0;
                             insert(current, temp3, count_node);
                         }
                     }
@@ -122,7 +123,12 @@ namespace Library_LAB2
                     order_heap(current.child_right, current);
                 }
             }
-
+            else if (current.child_left != null && current.child_right == null)
+            {
+                double dif_left = current.probability - current.child_left.probability;
+                if (dif_left > current.child_left.probability) ;
+                order_heap(current.child_left, current);
+            }
         }
         void search(Node<string> reco)
         {
@@ -202,6 +208,20 @@ namespace Library_LAB2
                 int repetitions = current.repetitions;
                 double probability = current.probability;
 
+                if(current.heap_child_left != null && current.heap_child_right != null)
+                {
+                    Node<string> left = new Node<string>();
+                    Node<string> right = new Node<string>();
+
+                    left = current.heap_child_left;
+                    right = current.heap_child_right;
+
+                    father.heap_child_left = left;
+                    father.heap_child_right = right;
+
+                    current.heap_child_left = default;
+                    current.heap_child_right = default;
+                }
 
                 string symbols_father = father.symbols;
                 int repetitions_father = father.repetitions;

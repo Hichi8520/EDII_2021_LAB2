@@ -9,9 +9,5 @@
     <ProjectReference Include="..\Library-LAB2\Library-LAB2.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Models\" />
-  </ItemGroup>
-
 
 </Project>
