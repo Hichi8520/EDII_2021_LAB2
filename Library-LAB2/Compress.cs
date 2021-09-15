@@ -11,12 +11,15 @@ namespace Library_LAB2
         Stack<Node<string>> childheap = new Stack<Node<string>>();
         Node<string> root = new Node<string>();
         Node<string> search_node = new Node<string>();
+        string cadena = null;
+        string binary_string = null;
         int flag = 0;
         int flag_insert = 0;
         int count_node = 0;
         int n = 0;
         public void begin(string text)
         {
+            cadena = text;
             for(int i = 0; i < text.Length; i++)
             {
                 flag = 0;
@@ -48,7 +51,17 @@ namespace Library_LAB2
                 flag_insert = 0;
                 insert(root, entry.Value, count_node);
             }
-            buildheap(root);            
+            buildheap(root);
+            assign_prefixes(root);
+            for(int i = 0; i < cadena.Length; i++)
+            {
+                string value;
+                bool hasValue = prefix_table.TryGetValue(cadena[i], out value);
+                if (hasValue)
+                {
+                    binary_string = binary_string + value;
+                }
+            }
         } 
         void buildheap(Node<string> current)
         {
@@ -141,7 +154,6 @@ namespace Library_LAB2
                     insert(current, temp5, count_node);
                 }
             }
-            assign_prefixes(root);
         }
         void change_value(Node<string> current)
         {
@@ -360,11 +372,10 @@ namespace Library_LAB2
             if (node.heap_child_left != null)
             {
                 node.heap_child_left.prefix = node.prefix + node.heap_child_left.prefix;
-                //if (prefix_table.ContainsKey(Convert.ToChar(node.heap_child_left.symbols)))
-                //{
-                //    prefix_table[Convert.ToChar(node.heap_child_left.symbols)].
-                //    prefix_table = prefix_table.ToDictionary(kvp => kvp.Key, kvp => kvp.Value + 1);
-                //}
+                if (node.heap_child_left.heap_child_left == null)
+                {
+                    prefix_table.Add(Convert.ToChar(node.heap_child_left.symbols), node.heap_child_left.prefix);
+                }
                 if (node.heap_child_left.heap_child_left != null)
                 {
                     assign_prefixes(node.heap_child_left);
@@ -373,10 +384,10 @@ namespace Library_LAB2
             if (node.heap_child_right != null)
             {
                 node.heap_child_right.prefix = node.prefix + node.heap_child_right.prefix;
-                //if (node.heap_child_right.symbols == null)
-                //{
-                //    prefix_table.Add(node.heap_child_right.symbols, node.heap_child_right.prefix);
-                //}
+                if (node.heap_child_right.heap_child_right == null)
+                {
+                    prefix_table.Add(Convert.ToChar(node.heap_child_right.symbols), node.heap_child_right.prefix);
+                }
                 if (node.heap_child_right != null)
                 {
                     assign_prefixes(node.heap_child_right);
