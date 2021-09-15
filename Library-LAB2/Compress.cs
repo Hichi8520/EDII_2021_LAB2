@@ -125,9 +125,16 @@ namespace Library_LAB2
                 temp5.heap_child_right = temp2;
                 temp5.number_heap = count_node;
                 flag_insert = 0;
-                insert(current, temp5, count_node);
+                if(temp5.probability == 1)
+                {
+                    root = temp5;
+                    break;
+                }
+                else
+                {
+                    insert(current, temp5, count_node);
+                }
             }
-
         }
         void change_value(Node<string> current)
         {
@@ -285,7 +292,11 @@ namespace Library_LAB2
             current.repetitions = repetitions_father;
             current.probability = probability_father;
 
-            if (current.heap_child_left != null || current.heap_child_right != null)
+            down.symbols = symbols;
+            down.repetitions = repetitions;
+            down.probability = probability;
+
+            if (current.heap_child_left != null && current.heap_child_right != null)
             {
                 Node<string> left = new Node<string>();
                 Node<string> right = new Node<string>();
@@ -299,11 +310,41 @@ namespace Library_LAB2
                 current.heap_child_left = default;
                 current.heap_child_right = default;
             }
+            else if (down.heap_child_left != null && down.heap_child_right != null)
+            {
+                Node<string> left = new Node<string>();
+                Node<string> right = new Node<string>();
+
+                left = down.heap_child_left;
+                right = down.heap_child_right;
+
+                current.heap_child_left = left;
+                current.heap_child_right = right;
+
+                down.heap_child_left = default;
+                down.heap_child_right = default;
+            }
+            else if (down.heap_child_left != null && down.heap_child_right != null && current.heap_child_left != null && current.heap_child_right != null)
+            {
+                Node<string> left = new Node<string>();
+                Node<string> right = new Node<string>();
+                Node<string> left_down = new Node<string>();
+                Node<string> right_down = new Node<string>();
+
+                left = current.heap_child_left;
+                right = current.heap_child_right;
+
+                down.heap_child_left = left;
+                down.heap_child_right = right;
+
+                left_down = down.heap_child_left;
+                right_down = down.heap_child_right;
+
+                current.heap_child_left = left;
+                current.heap_child_right = right;
 
 
-            down.symbols = symbols;
-            down.repetitions = repetitions;
-            down.probability = probability;
+            }
 
             change_value(current);
         }
