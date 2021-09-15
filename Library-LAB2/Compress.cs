@@ -22,17 +22,17 @@ namespace Library_LAB2
                 if (table.ContainsKey(text[i].ToString()))
                 {
                     _ = new Node<string>();
-                    Node<string> temp = table[text[i].ToString()];
-                    temp.repetitions = temp.repetitions + 1;
-                    temp.probability = Math.Round((Convert.ToDouble(temp.repetitions)) / text.Length, 6);
+                    Node<string> temp1 = table[text[i].ToString()];
+                    temp1.repetitions = temp1.repetitions + 1;
+                    temp1.probability = Math.Round((Convert.ToDouble(temp1.repetitions)) / text.Length, 6);
                     flag = 1;
                 }else if (flag == 0)
                 {
-                    Node<string> temp = new Node<string>();
-                    temp.symbols = text[i].ToString();
-                    temp.repetitions = 1;
-                    temp.probability = Math.Round((Convert.ToDouble(temp.repetitions)) / text.Length, 6);
-                    table.Add(text[i].ToString(),temp);
+                    Node<string> temp1 = new Node<string>();
+                    temp1.symbols = text[i].ToString();
+                    temp1.repetitions = 1;
+                    temp1.probability = Math.Round((Convert.ToDouble(temp1.repetitions)) / text.Length, 6);
+                    table.Add(text[i].ToString(),temp1);
                 }
             }
             huffmanbegin();
@@ -53,82 +53,107 @@ namespace Library_LAB2
         {
             while(count_node > 0)
             {
-                Node<string> temp = new Node<string>();
+                Node<string> temp1 = new Node<string>();
                 Node<string> temp2 = new Node<string>();
                 Node<string> temp3 = new Node<string>();
+                Node<string> temp4 = new Node<string>();
+                Node<string> temp5 = new Node<string>();
+
                 search(current);
                 count_node--;
-                temp2 = search_node;
+                temp1 = search_node;
+                temp2.symbols = current.symbols;
+                temp2.repetitions = current.repetitions;
+                temp2.probability = current.probability;
 
-                temp.symbols = current.symbols;
-                temp.repetitions = current.repetitions;
-                temp.probability = current.probability;
+                if (current.heap_child_left != null || current.heap_child_right != null)
+                {
+                    Node<string> left = new Node<string>();
+                    Node<string> right = new Node<string>();
 
-                current.symbols = temp2.symbols;
-                current.repetitions = temp2.repetitions;
-                current.probability = temp2.probability;
+                    left = current.heap_child_left;
+                    right = current.heap_child_right;
+
+                    temp2.heap_child_left = left;
+                    temp2.heap_child_right = right;
+
+                    current.heap_child_left = default;
+                    current.heap_child_right = default;
+                }
+
+                current.symbols = temp1.symbols;
+                current.repetitions = temp1.repetitions;
+                current.probability = temp1.probability;
+                current.heap_child_left = temp1.heap_child_left;
+                current.heap_child_right = temp1.heap_child_right;
                 change_value(current);
-                //ya saca todos los valores... solo hay que ver como hacer los mini arbolitos que se van formando conforme sacamos los nodos
-                if (!childheap.Contains(temp))
-                {
-                    if (childheap.Count == 0)
-                    {
-                        childheap.Push(temp);
-                    }
-                    else if (childheap.Peek().number_heap == 0)
-                    {
-                        childheap.Push(temp);
 
-                        if (childheap.Count >= 2)
-                        {
-                            temp = childheap.Pop();
-                            temp2 = childheap.Pop();
-                            n++;
-                            temp3.symbols = "n" + n.ToString();
-                            temp3.probability = temp.probability + temp2.probability;
-                            temp3.heap_child_left = temp;
-                            temp3.heap_child_right = temp2;
-                            childheap.Push(temp3);
-                            count_node++;
-                            temp3.number_heap = count_node;
-                            flag_insert = 0;
-                            insert(current, temp3, count_node);
-                        }
-                    }
-                }
-                else
-                {
+                search(current);
+                count_node--;
+                temp3 = search_node;
+                temp4.symbols = current.symbols;
+                temp4.repetitions = current.repetitions;
+                temp4.probability = current.probability;
 
+                if (current.heap_child_left != null || current.heap_child_right != null)
+                {
+                    Node<string> left = new Node<string>();
+                    Node<string> right = new Node<string>();
+
+                    left = current.heap_child_left;
+                    right = current.heap_child_right;
+
+                    temp4.heap_child_left = left;
+                    temp4.heap_child_right = right;
+
+                    current.heap_child_left = default;
+                    current.heap_child_right = default;
                 }
 
+                current.symbols = temp3.symbols;
+                current.repetitions = temp3.repetitions;
+                current.probability = temp3.probability;
+                current.heap_child_left = temp3.heap_child_left;
+                current.heap_child_right = temp3.heap_child_right;
+                change_value(current);
+
+                count_node++;
+                n++;
+                temp5.symbols = "n" + n.ToString();
+                temp5.probability = temp2.probability + temp4.probability;
+                temp5.heap_child_left = temp4; 
+                temp5.heap_child_right = temp2;
+                temp5.number_heap = count_node;
+                flag_insert = 0;
+                insert(current, temp5, count_node);
             }
+
         }
         void change_value(Node<string> current)
         {
-            if(current.child_left != null && current.child_right != null)
+            if (current.child_left != null && current.child_right != null)
             {
                 double dif_left = current.probability - current.child_left.probability;
                 double dif_right = current.probability - current.child_right.probability;
 
-                if (dif_left > dif_right)
+                if (dif_left == dif_right)
                 {
                     order_heap(current.child_left, current);
-                }
-                else if (dif_left == dif_right)
+                }else  if (dif_left > dif_right && dif_left >= 0 && dif_right >= 0)
                 {
                     order_heap(current.child_left, current);
-                }
-                else
+                }else  if (dif_left < dif_right && dif_left >= 0 && dif_right >= 0)
                 {
                     order_heap(current.child_right, current);
                 }
-            }
-            else if (current.child_left != null && current.child_right == null)
+            }else if(current.child_left != null)
             {
-                double dif_left = current.probability - current.child_left.probability;
-                if (dif_left > current.child_left.probability) ;
-                order_heap(current.child_left, current);
+                if (current.probability > current.child_left.probability && current.child_right == null)
+                {
+                    order_heap(current.child_left, current);
+                }
             }
+            
         }
         void search(Node<string> reco)
         {
@@ -141,10 +166,12 @@ namespace Library_LAB2
                     {
                         if (reco.father.child_left == reco)
                         {
+                            reco.father.count_child--;
                             reco.father.child_left = default;
                         }
                         else
                         {
+                            reco.father.count_child--;
                             reco.father.child_right = default;
                         }
                     }
@@ -208,7 +235,7 @@ namespace Library_LAB2
                 int repetitions = current.repetitions;
                 double probability = current.probability;
 
-                if(current.heap_child_left != null && current.heap_child_right != null)
+                if(current.heap_child_left != null || current.heap_child_right != null)
                 {
                     Node<string> left = new Node<string>();
                     Node<string> right = new Node<string>();
@@ -257,6 +284,22 @@ namespace Library_LAB2
             current.symbols = symbols_father;
             current.repetitions = repetitions_father;
             current.probability = probability_father;
+
+            if (current.heap_child_left != null || current.heap_child_right != null)
+            {
+                Node<string> left = new Node<string>();
+                Node<string> right = new Node<string>();
+
+                left = current.heap_child_left;
+                right = current.heap_child_right;
+
+                down.heap_child_left = left;
+                down.heap_child_right = right;
+
+                current.heap_child_left = default;
+                current.heap_child_right = default;
+            }
+
 
             down.symbols = symbols;
             down.repetitions = repetitions;
