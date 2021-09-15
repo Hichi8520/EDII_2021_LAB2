@@ -7,6 +7,7 @@ namespace Library_LAB2
     {
         IDictionary<string,Node<string>> table = new Dictionary<string,Node<string>>();
         IDictionary<string, Node<string>> find_childheap = new Dictionary<string, Node<string>>();
+        public Dictionary<char, string> prefix_table = new Dictionary<char, string>(); //Diccionario con prefijos
         Stack<Node<string>> childheap = new Stack<Node<string>>();
         Node<string> root = new Node<string>();
         Node<string> search_node = new Node<string>();
@@ -47,7 +48,7 @@ namespace Library_LAB2
                 flag_insert = 0;
                 insert(root, entry.Value, count_node);
             }
-            buildheap(root);
+            buildheap(root);            
         } 
         void buildheap(Node<string> current)
         {
@@ -121,12 +122,17 @@ namespace Library_LAB2
                 n++;
                 temp5.symbols = "n" + n.ToString();
                 temp5.probability = temp2.probability + temp4.probability;
-                temp5.heap_child_left = temp4; 
+                temp5.heap_child_left = temp4;
+                temp5.heap_child_left.prefix = "0";
+                temp5.heap_child_left.heap_father = temp5;
                 temp5.heap_child_right = temp2;
+                temp5.heap_child_right.prefix = "1";
+                temp5.heap_child_right.heap_father = temp5;
                 temp5.number_heap = count_node;
                 flag_insert = 0;
                 if(temp5.probability == 1)
                 {
+                    flag = 0;
                     root = temp5;
                     break;
                 }
@@ -135,6 +141,7 @@ namespace Library_LAB2
                     insert(current, temp5, count_node);
                 }
             }
+            assign_prefixes(root);
         }
         void change_value(Node<string> current)
         {
@@ -347,6 +354,35 @@ namespace Library_LAB2
             }
 
             change_value(current);
+        }
+        void assign_prefixes(Node<string> node) //Asignacion de prefijos al arbol
+        {
+            if (node.heap_child_left != null)
+            {
+                node.heap_child_left.prefix = node.prefix + node.heap_child_left.prefix;
+                //if (prefix_table.ContainsKey(Convert.ToChar(node.heap_child_left.symbols)))
+                //{
+                //    prefix_table[Convert.ToChar(node.heap_child_left.symbols)].
+                //    prefix_table = prefix_table.ToDictionary(kvp => kvp.Key, kvp => kvp.Value + 1);
+                //}
+                if (node.heap_child_left.heap_child_left != null)
+                {
+                    assign_prefixes(node.heap_child_left);
+                }
+            }
+            if (node.heap_child_right != null)
+            {
+                node.heap_child_right.prefix = node.prefix + node.heap_child_right.prefix;
+                //if (node.heap_child_right.symbols == null)
+                //{
+                //    prefix_table.Add(node.heap_child_right.symbols, node.heap_child_right.prefix);
+                //}
+                if (node.heap_child_right != null)
+                {
+                    assign_prefixes(node.heap_child_right);
+                }
+            }
+
         }
     }
 }

@@ -11,6 +11,7 @@ namespace Library_LAB2
         public int repetitions { get; set; }
         public double probability { get; set; }
         public Node<T> father { get; set; }
+        public Node<T> heap_father { get; set; }
         public Node<T> child_left { get;set; }
         public Node<T> child_right { get;set; }
         public Node<T> heap_child_left { get; set; }
