@@ -13,7 +13,7 @@ namespace Console_LAB2
             string compresion = Huffman.Compress(valueToHuffman);
             Console.WriteLine("Cadena original      - ddabdccedchafbadgdcgabgccddbcdgg");
             Console.WriteLine("Cadena comprimida    - " + compresion);
-            Console.WriteLine("Cadena descomprimida - " + Huffman.DeCompress(compresion));
+            Console.WriteLine("Cadena descomprimida - " + Huffman.Decompress(compresion));
             Console.ReadLine();
         }
     }

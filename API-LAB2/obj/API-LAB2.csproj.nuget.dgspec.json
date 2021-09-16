@@ -1,20 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "E:\\Mis Documentos\\URL\\Ciclo 2021\\2do\\ESTII\\Lab\\Practicas\\EDII_2021_LAB2\\API-LAB2\\API-LAB2.csproj": {}
+    "C:\\Users\\hichi\\Documents\\GitHub\\EDII_2021_LAB2\\API-LAB2\\API-LAB2.csproj": {}
   },
   "projects": {
-    "E:\\Mis Documentos\\URL\\Ciclo 2021\\2do\\ESTII\\Lab\\Practicas\\EDII_2021_LAB2\\API-LAB2\\API-LAB2.csproj": {
+    "C:\\Users\\hichi\\Documents\\GitHub\\EDII_2021_LAB2\\API-LAB2\\API-LAB2.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\Mis Documentos\\URL\\Ciclo 2021\\2do\\ESTII\\Lab\\Practicas\\EDII_2021_LAB2\\API-LAB2\\API-LAB2.csproj",
+        "projectUniqueName": "C:\\Users\\hichi\\Documents\\GitHub\\EDII_2021_LAB2\\API-LAB2\\API-LAB2.csproj",
         "projectName": "API-LAB2",
-        "projectPath": "E:\\Mis Documentos\\URL\\Ciclo 2021\\2do\\ESTII\\Lab\\Practicas\\EDII_2021_LAB2\\API-LAB2\\API-LAB2.csproj",
-        "packagesPath": "C:\\Users\\ericd\\.nuget\\packages\\",
-        "outputPath": "E:\\Mis Documentos\\URL\\Ciclo 2021\\2do\\ESTII\\Lab\\Practicas\\EDII_2021_LAB2\\API-LAB2\\obj\\",
+        "projectPath": "C:\\Users\\hichi\\Documents\\GitHub\\EDII_2021_LAB2\\API-LAB2\\API-LAB2.csproj",
+        "packagesPath": "C:\\Users\\hichi\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\hichi\\Documents\\GitHub\\EDII_2021_LAB2\\API-LAB2\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
         "configFilePaths": [
-          "C:\\Users\\ericd\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\hichi\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -26,10 +29,9 @@
         },
         "frameworks": {
           "netcoreapp3.1": {
-            "targetAlias": "netcoreapp3.1",
             "projectReferences": {
-              "E:\\Mis Documentos\\URL\\Ciclo 2021\\2do\\ESTII\\Lab\\Practicas\\EDII_2021_LAB2\\Library-LAB2\\Library-LAB2.csproj": {
-                "projectPath": "E:\\Mis Documentos\\URL\\Ciclo 2021\\2do\\ESTII\\Lab\\Practicas\\EDII_2021_LAB2\\Library-LAB2\\Library-LAB2.csproj"
+              "C:\\Users\\hichi\\Documents\\GitHub\\EDII_2021_LAB2\\Library-LAB2\\Library-LAB2.csproj": {
+                "projectPath": "C:\\Users\\hichi\\Documents\\GitHub\\EDII_2021_LAB2\\Library-LAB2\\Library-LAB2.csproj"
               }
             }
           }
@@ -42,7 +44,6 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
-          "targetAlias": "netcoreapp3.1",
           "imports": [
             "net461",
             "net462",
@@ -61,21 +62,24 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.400\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.413\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "E:\\Mis Documentos\\URL\\Ciclo 2021\\2do\\ESTII\\Lab\\Practicas\\EDII_2021_LAB2\\Library-LAB2\\Library-LAB2.csproj": {
+    "C:\\Users\\hichi\\Documents\\GitHub\\EDII_2021_LAB2\\Library-LAB2\\Library-LAB2.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\Mis Documentos\\URL\\Ciclo 2021\\2do\\ESTII\\Lab\\Practicas\\EDII_2021_LAB2\\Library-LAB2\\Library-LAB2.csproj",
+        "projectUniqueName": "C:\\Users\\hichi\\Documents\\GitHub\\EDII_2021_LAB2\\Library-LAB2\\Library-LAB2.csproj",
         "projectName": "Library-LAB2",
-        "projectPath": "E:\\Mis Documentos\\URL\\Ciclo 2021\\2do\\ESTII\\Lab\\Practicas\\EDII_2021_LAB2\\Library-LAB2\\Library-LAB2.csproj",
-        "packagesPath": "C:\\Users\\ericd\\.nuget\\packages\\",
-        "outputPath": "E:\\Mis Documentos\\URL\\Ciclo 2021\\2do\\ESTII\\Lab\\Practicas\\EDII_2021_LAB2\\Library-LAB2\\obj\\",
+        "projectPath": "C:\\Users\\hichi\\Documents\\GitHub\\EDII_2021_LAB2\\Library-LAB2\\Library-LAB2.csproj",
+        "packagesPath": "C:\\Users\\hichi\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\hichi\\Documents\\GitHub\\EDII_2021_LAB2\\Library-LAB2\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
         "configFilePaths": [
-          "C:\\Users\\ericd\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\hichi\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -87,7 +91,6 @@
         },
         "frameworks": {
           "netcoreapp3.1": {
-            "targetAlias": "netcoreapp3.1",
             "projectReferences": {}
           }
         },
@@ -99,7 +102,6 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
-          "targetAlias": "netcoreapp3.1",
           "imports": [
             "net461",
             "net462",
@@ -115,7 +117,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.400\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.413\\RuntimeIdentifierGraph.json"
         }
       }
     }

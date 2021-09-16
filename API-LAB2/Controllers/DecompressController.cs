@@ -64,7 +64,7 @@ namespace API_LAB2.Controllers
                 var nodeString = ByteGenerator.ConvertToString(buffer);
 
                 Huffman huff = new Huffman();
-                string cadena_descifrada = huff.Descifrado(nodeString);
+                string cadena_descifrada = huff.Decompress(nodeString);
 
 
                 // Buscar el nombre original en el archivo Historial.txt

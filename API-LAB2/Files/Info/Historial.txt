@@ -1,0 +1,1 @@
+ejercicio.txt;C:\Users\hichi\Documents\GitHub\EDII_2021_LAB2\API-LAB2\Files\test1.huff;0.88;1.14;12/ejercicio.txt;C:\Users\hichi\Documents\GitHub\EDII_2021_LAB2\API-LAB2\Files\test1.huff;0.88;1.14;12

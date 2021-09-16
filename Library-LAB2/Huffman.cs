@@ -8,7 +8,7 @@ using System.Web;
 
 namespace Library_LAB2
 {
-    public class Huffman
+    public class Huffman : ICompressor
     {
         IDictionary<string,Node<string>> table = new Dictionary<string,Node<string>>();
         public Dictionary<char, string> prefix_table = new Dictionary<char, string>(); //Diccionario con prefijos
@@ -23,7 +23,7 @@ namespace Library_LAB2
         int flag_insert = 0;
         int count_node = 0;
         int n = 0;
-	double frecuencyBytes = 1;
+	    double frecuencyBytes = 1;
         public string Compress(string text)
         {
             cadena = text;
@@ -62,12 +62,12 @@ namespace Library_LAB2
             huffmanbegin();
             return compressed_chain;
         }
-        public string DeCompress(string text)
+        public string Decompress(string text)
         {
             string binario = null;
             int count = Convert.ToInt32(text[0]);
             int total = 0;
-            text = text.Substring(1, text.Count()- 1);
+            text = text.Substring(2, text.Count()- 2);
             table.Clear();
             for(int i = 0; i < count; i++)
             {
@@ -106,6 +106,7 @@ namespace Library_LAB2
             }
             string compa = null;
             string original = null;
+            int countInsertions = 0;
 
             for (int i = 0; i < binario.Length; i++)
             {
@@ -115,6 +116,8 @@ namespace Library_LAB2
                 if (hasValue)
                 {
                     original = original + value;
+                    countInsertions++;
+                    if (countInsertions == total) break;
                     binario = binario.Remove(0, i + 1);
                     compa = null;
                     i = -1;
@@ -189,6 +192,7 @@ namespace Library_LAB2
                 {
                     value = value + '0';
                 }
+                binary_string = value;
 
                 split(value);
             }

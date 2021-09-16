@@ -36,7 +36,7 @@ namespace API_LAB2.Controllers
             saver.Close();
 
             // Mensaje de bienvenida
-            string mensaje = "Laboratorio 1 - Inicio Exitoso...\n * Comprimir un archivo - Suba un archivo de texto y coloque el nombre que desee en el archivo nuevo en la ruta '/api/compress/{name}' \n * Descomprimir un archivo - Suba un archivo .huff a la ruta '/api/decompress' y se le devolverá el archivo original \n * Visualice el listado de compresiones en la ruta '/api/compressions' \n * Los archivos devueltos los podrá visualizar en la carpeta EDII_LAB3\\API\\Files";
+            string mensaje = "Laboratorio 2 - Inicio Exitoso...\n * Comprimir un archivo - Suba un archivo de texto y coloque el nombre que desee en el archivo nuevo en la ruta '/api/compress/{name}' \n * Descomprimir un archivo - Suba un archivo .huff a la ruta '/api/decompress' y se le devolverá el archivo original \n * Visualice el listado de compresiones en la ruta '/api/compressions' \n * Los archivos devueltos los podrá descargar al terminar la petición";
             return mensaje;
         }
 
@@ -84,8 +84,7 @@ namespace API_LAB2.Controllers
                 var nodeString = ByteGenerator.ConvertToString(buffer);
 
                 Huffman huff = new Huffman();
-                //huff.begin(nodeString);
-                string cadena_cifrada = huff.begin(nodeString);
+                string cadena_cifrada = huff.Compress(nodeString);
 
 
                 // Escribir el archivo {name}.huff en el servidor

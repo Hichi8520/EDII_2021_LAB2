@@ -22,3 +22,26 @@ E:\Mis Documentos\URL\Ciclo 2021\2do\ESTII\Lab\Practicas\EDII_2021_LAB2\API-LAB2
 E:\Mis Documentos\URL\Ciclo 2021\2do\ESTII\Lab\Practicas\EDII_2021_LAB2\API-LAB2\obj\Debug\netcoreapp3.1\API-LAB2.dll
 E:\Mis Documentos\URL\Ciclo 2021\2do\ESTII\Lab\Practicas\EDII_2021_LAB2\API-LAB2\obj\Debug\netcoreapp3.1\API-LAB2.pdb
 E:\Mis Documentos\URL\Ciclo 2021\2do\ESTII\Lab\Practicas\EDII_2021_LAB2\API-LAB2\obj\Debug\netcoreapp3.1\API-LAB2.genruntimeconfig.cache
+C:\Users\hichi\Documents\GitHub\EDII_2021_LAB2\API-LAB2\bin\Debug\netcoreapp3.1\appsettings.Development.json
+C:\Users\hichi\Documents\GitHub\EDII_2021_LAB2\API-LAB2\bin\Debug\netcoreapp3.1\appsettings.json
+C:\Users\hichi\Documents\GitHub\EDII_2021_LAB2\API-LAB2\bin\Debug\netcoreapp3.1\Properties\launchSettings.json
+C:\Users\hichi\Documents\GitHub\EDII_2021_LAB2\API-LAB2\bin\Debug\netcoreapp3.1\API-LAB2.exe
+C:\Users\hichi\Documents\GitHub\EDII_2021_LAB2\API-LAB2\bin\Debug\netcoreapp3.1\API-LAB2.deps.json
+C:\Users\hichi\Documents\GitHub\EDII_2021_LAB2\API-LAB2\bin\Debug\netcoreapp3.1\API-LAB2.runtimeconfig.json
+C:\Users\hichi\Documents\GitHub\EDII_2021_LAB2\API-LAB2\bin\Debug\netcoreapp3.1\API-LAB2.runtimeconfig.dev.json
+C:\Users\hichi\Documents\GitHub\EDII_2021_LAB2\API-LAB2\bin\Debug\netcoreapp3.1\API-LAB2.dll
+C:\Users\hichi\Documents\GitHub\EDII_2021_LAB2\API-LAB2\bin\Debug\netcoreapp3.1\API-LAB2.pdb
+C:\Users\hichi\Documents\GitHub\EDII_2021_LAB2\API-LAB2\bin\Debug\netcoreapp3.1\Library-LAB2.dll
+C:\Users\hichi\Documents\GitHub\EDII_2021_LAB2\API-LAB2\bin\Debug\netcoreapp3.1\Library-LAB2.pdb
+C:\Users\hichi\Documents\GitHub\EDII_2021_LAB2\API-LAB2\obj\Debug\netcoreapp3.1\API-LAB2.csprojAssemblyReference.cache
+C:\Users\hichi\Documents\GitHub\EDII_2021_LAB2\API-LAB2\obj\Debug\netcoreapp3.1\API-LAB2.AssemblyInfoInputs.cache
+C:\Users\hichi\Documents\GitHub\EDII_2021_LAB2\API-LAB2\obj\Debug\netcoreapp3.1\API-LAB2.AssemblyInfo.cs
+C:\Users\hichi\Documents\GitHub\EDII_2021_LAB2\API-LAB2\obj\Debug\netcoreapp3.1\API-LAB2.csproj.CoreCompileInputs.cache
+C:\Users\hichi\Documents\GitHub\EDII_2021_LAB2\API-LAB2\obj\Debug\netcoreapp3.1\API-LAB2.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\hichi\Documents\GitHub\EDII_2021_LAB2\API-LAB2\obj\Debug\netcoreapp3.1\API-LAB2.RazorTargetAssemblyInfo.cache
+C:\Users\hichi\Documents\GitHub\EDII_2021_LAB2\API-LAB2\obj\Debug\netcoreapp3.1\API-LAB2.csproj.CopyComplete
+C:\Users\hichi\Documents\GitHub\EDII_2021_LAB2\API-LAB2\obj\Debug\netcoreapp3.1\staticwebassets\API-LAB2.StaticWebAssets.Manifest.cache
+C:\Users\hichi\Documents\GitHub\EDII_2021_LAB2\API-LAB2\obj\Debug\netcoreapp3.1\staticwebassets\API-LAB2.StaticWebAssets.xml
+C:\Users\hichi\Documents\GitHub\EDII_2021_LAB2\API-LAB2\obj\Debug\netcoreapp3.1\API-LAB2.dll
+C:\Users\hichi\Documents\GitHub\EDII_2021_LAB2\API-LAB2\obj\Debug\netcoreapp3.1\API-LAB2.pdb
+C:\Users\hichi\Documents\GitHub\EDII_2021_LAB2\API-LAB2\obj\Debug\netcoreapp3.1\API-LAB2.genruntimeconfig.cache
