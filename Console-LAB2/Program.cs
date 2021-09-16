@@ -7,11 +7,11 @@ namespace Console_LAB2
     {
         static void Main(string[] args)
         {
-            Compress Huffman = new Compress();
+            Huffman Huffman = new Huffman();
             //Console.WriteLine("Ingresa un texto para realizar la compresión HUFFMAN");
             string valueToHuffman = "ddabdccedchafbadgdcgabgccddbcdgg";
             Console.WriteLine("Cadena original   - ddabdccedchafbadgdcgabgccddbcdgg");
-            Console.WriteLine("Cadena convertida - " + Huffman.begin(valueToHuffman));
+            Console.WriteLine("Cadena convertida - " + Huffman.Compress(valueToHuffman));
             Console.ReadLine();
         }
     }

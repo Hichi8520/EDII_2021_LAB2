@@ -83,7 +83,7 @@ namespace API_LAB2.Controllers
 
                 var nodeString = ByteGenerator.ConvertToString(buffer);
 
-                Compress huff = new Compress();
+                Huffman huff = new Huffman();
                 //huff.begin(nodeString);
                 string cadena_cifrada = huff.begin(nodeString);
 

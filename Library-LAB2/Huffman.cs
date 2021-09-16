@@ -8,7 +8,7 @@ using System.Web;
 
 namespace Library_LAB2
 {
-    public class Compress
+    public class Huffman
     {
         IDictionary<string,Node<string>> table = new Dictionary<string,Node<string>>();
         public Dictionary<char, string> prefix_table = new Dictionary<char, string>(); //Diccionario con prefijos
@@ -21,7 +21,7 @@ namespace Library_LAB2
         int flag_insert = 0;
         int count_node = 0;
         int n = 0;
-        public string begin(string text)
+        public string Compress(string text)
         {
             cadena = text;
             for(int i = 0; i < text.Length; i++)
