@@ -23,6 +23,7 @@ namespace Library_LAB2
         int flag_insert = 0;
         int count_node = 0;
         int n = 0;
+	double frecuencyBytes = 1;
         public string Compress(string text)
         {
             cadena = text;
@@ -45,7 +46,16 @@ namespace Library_LAB2
                     table.Add(text[i].ToString(),temp1);
                 }
             }
+
+            double tempBytes = 0;
+            foreach (var node in table)
+            {
+                tempBytes = Math.Floor(Convert.ToDouble(node.Value.repetitions) / 255);
+                if (tempBytes > frecuencyBytes) frecuencyBytes = tempBytes;
+            }
+
             compressed_chain = compressed_chain + Convert.ToChar(table.Count() * 2);
+            compressed_chain += Convert.ToChar((Convert.ToInt32(frecuencyBytes)));
             foreach(var node in table){
                 compressed_chain = compressed_chain + node.Key + Convert.ToChar(node.Value.repetitions);
             }
