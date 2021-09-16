@@ -17,6 +17,7 @@ namespace Library_LAB2
         string cadena = null;
         string binary_string = null;
         string compressed_chain = null;
+        string decompressed_chain = null;
         int flag = 0;
         int flag_insert = 0;
         int count_node = 0;
@@ -43,13 +44,75 @@ namespace Library_LAB2
                     table.Add(text[i].ToString(),temp1);
                 }
             }
-
+            compressed_chain = compressed_chain + Convert.ToChar(table.Count() * 2);
             foreach(var node in table){
                 compressed_chain = compressed_chain + node.Key + Convert.ToChar(node.Value.repetitions);
             }
-
             huffmanbegin();
             return compressed_chain;
+        }
+        public string DeCompress(string text)
+        {
+            string binario = null;
+            int count = Convert.ToInt32(text[0]);
+            int total = 0;
+            text = text.Substring(1, text.Count()- 1);
+            table.Clear();
+            for(int i = 0; i < count; i++)
+            {
+                Node<string> value = new Node<string>();
+                value.symbols = text[i].ToString();
+                value.repetitions = text[i + 1];
+                total = total + value.repetitions;
+                table.Add(value.symbols,value);
+                i++;
+            }
+            foreach (var node in table)
+            {
+                node.Value.probability = Math.Round((Convert.ToDouble(node.Value.repetitions)) / total, 6);
+            }
+            text = text.Remove(0, count);
+            for(int i = 0; i < text.Count(); i++)
+            {
+                binario = binario + DecimalaBinario(text[i], 8);
+            }
+            flag = 0;
+            root = null;
+            count_node = 0;
+            n = 0;
+            foreach (var entry in table)
+            {
+                count_node++;
+                flag_insert = 0;
+                insert(root, entry.Value, count_node);
+            }
+            buildheap(root);
+            assign_prefixes(root);
+            return decompressed_chain;
+        }
+        string DecimalaBinario(int deci, int val) //convierte el decimal enviado a un binario
+        {
+            string binario = string.Empty;
+            int residuo = 0;
+            for (int x = 0; deci > 1; x++)
+            {
+                residuo = deci % 2;
+                deci = deci / 2;
+                binario = residuo.ToString() + binario;
+            }
+
+            if (deci == 1)
+            {
+                binario = deci.ToString() + binario;
+            }
+            if (binario.Length != val)
+            {
+                for (int d = 0; d < (val - binario.Length); deci++)
+                {
+                    binario = '0' + binario;
+                }
+            }
+            return binario;
         }
         void huffmanbegin()
         {
