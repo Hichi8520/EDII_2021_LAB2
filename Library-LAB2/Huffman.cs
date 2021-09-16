@@ -12,6 +12,7 @@ namespace Library_LAB2
     {
         IDictionary<string,Node<string>> table = new Dictionary<string,Node<string>>();
         public Dictionary<char, string> prefix_table = new Dictionary<char, string>(); //Diccionario con prefijos
+        public Dictionary<string, char> prefix_table_decompress = new Dictionary<string, char>(); //Diccionario con prefijos
         Node<string> root = new Node<string>();
         Node<string> search_node = new Node<string>();
         string cadena = null;
@@ -86,9 +87,30 @@ namespace Library_LAB2
                 flag_insert = 0;
                 insert(root, entry.Value, count_node);
             }
+            prefix_table.Clear();
             buildheap(root);
             assign_prefixes(root);
-            return decompressed_chain;
+            foreach (var entry in prefix_table)
+            {
+                prefix_table_decompress.Add(entry.Value, entry.Key);
+            }
+            string compa = null;
+            string original = null;
+
+            for (int i = 0; i < binario.Length; i++)
+            {
+                char value;
+                compa = compa + binario[i];
+                bool hasValue = prefix_table_decompress.TryGetValue(compa, out value);
+                if (hasValue)
+                {
+                    original = original + value;
+                    binario = binario.Remove(0, i + 1);
+                    compa = null;
+                    i = -1;
+                }
+            }
+            return original;
         }
         string DecimalaBinario(int deci, int val) //convierte el decimal enviado a un binario
         {
@@ -131,6 +153,7 @@ namespace Library_LAB2
                 bool hasValue = prefix_table.TryGetValue(cadena[i], out value);
                 if (hasValue)
                 {
+                    //value
                     binary_string = binary_string + value;
                 }
             }
