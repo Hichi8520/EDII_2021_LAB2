@@ -10,8 +10,9 @@ namespace Console_LAB2
             Compress Huffman = new Compress();
             //Console.WriteLine("Ingresa un texto para realizar la compresión HUFFMAN");
             string valueToHuffman = "ddabdccedchafbadgdcgabgccddbcdgg";
-            Huffman.begin(valueToHuffman);
-            
+            Console.WriteLine("Cadena original   - ddabdccedchafbadgdcgabgccddbcdgg");
+            Console.WriteLine("Cadena convertida - " + Huffman.begin(valueToHuffman));
+            Console.ReadLine();
         }
     }
 }

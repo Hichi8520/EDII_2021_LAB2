@@ -1,23 +1,27 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Web;
 
 namespace Library_LAB2
 {
     public class Compress
     {
         IDictionary<string,Node<string>> table = new Dictionary<string,Node<string>>();
-        IDictionary<string, Node<string>> find_childheap = new Dictionary<string, Node<string>>();
         public Dictionary<char, string> prefix_table = new Dictionary<char, string>(); //Diccionario con prefijos
-        Stack<Node<string>> childheap = new Stack<Node<string>>();
         Node<string> root = new Node<string>();
         Node<string> search_node = new Node<string>();
         string cadena = null;
         string binary_string = null;
+        string compressed_chain = null;
         int flag = 0;
         int flag_insert = 0;
         int count_node = 0;
         int n = 0;
-        public void begin(string text)
+        public string begin(string text)
         {
             cadena = text;
             for(int i = 0; i < text.Length; i++)
@@ -39,9 +43,14 @@ namespace Library_LAB2
                     table.Add(text[i].ToString(),temp1);
                 }
             }
-            huffmanbegin();
-        }
 
+            foreach(var node in table){
+                compressed_chain = compressed_chain + node.Key + Convert.ToChar(node.Value.repetitions);
+            }
+
+            huffmanbegin();
+            return compressed_chain;
+        }
         void huffmanbegin()
         {
             flag = 0;
@@ -62,7 +71,59 @@ namespace Library_LAB2
                     binary_string = binary_string + value;
                 }
             }
+            split(binary_string);
         } 
+        void split(string value)
+        {
+            string temp = null;
+            if (value.Length > 7)
+            {
+                if (binary_string.Length > 7)
+                {
+                    temp = binary_string.Substring(0, 8);
+                    binary_string = binary_string.Substring(8, binary_string.Length - 8);
+                    BinaryToDecimal(temp);
+                    split(binary_string);
+                }
+            }
+            else if(value.Length > 0)
+            {
+                int rest = 8 - value.Length;
+                for(int i = 0; i < rest; i++)
+                {
+                    value = value + '0';
+                }
+
+                split(value);
+            }
+        }
+        public void BinaryToDecimal(string codigospre) // separar el buffer y enviarlo como decimales
+        {
+            char[] binario = new char[8]; //obtiene un codigo binario
+            for (int x = 0; x < codigospre.Length; x++)//lleno el binario con los restantes
+            {
+                binario[x] = codigospre[x];
+            }
+            for (int x = codigospre.Length; x < 8; x++)
+            {
+                binario[x] = '0'; //completo el binario con el nuevo buffer
+                                  //agregados++;
+            }
+            Cod_Decimal(binario);
+        }
+        public void Cod_Decimal(char[] binario) //convertir los binarios a decimales
+        {
+            int valor_decimal = 0; // valor del decimal a convertir
+            for (int c = 7; c >= 0; c--)
+            {
+                int d = 7 - c;
+                double v = Convert.ToDouble(binario[d].ToString()) * Math.Pow(2, c);
+                valor_decimal = valor_decimal + Convert.ToInt32(v);
+
+            }
+            int temp = valor_decimal; //enviar el decimal
+            compressed_chain = compressed_chain + Convert.ToChar(temp);
+        }
         void buildheap(Node<string> current)
         {
             while(count_node > 0)
