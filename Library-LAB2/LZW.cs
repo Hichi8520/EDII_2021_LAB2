@@ -10,7 +10,7 @@ namespace Library_LAB2
 {
     public class LZW : ICompressor
     {
-        
+
         public string Compress(string text)
         {
 
