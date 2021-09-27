@@ -15,9 +15,9 @@ namespace Console_LAB2
             //Console.WriteLine("Cadena original      - ddabdccedchafbadgdcgabgccddbcdgg");
             //Console.WriteLine("Cadena comprimida    - " + compresion);
             //Console.WriteLine("Cadena descomprimida - " + Huffman.Decompress(compresion));
-            string valueTolzw = "ddabdccedchafbadgdcgabgccddbcdgg";
+            string valueTolzw = "WABBAWABBAWABBAWABBA";
             string compresion = Lzw.compress(valueTolzw);
-            Console.WriteLine("Cadena original      - ddabdccedchafbadgdcgabgccddbcdgg");
+            Console.WriteLine("Cadena original      - WABBAWABBAWABBAWABBA");
             Console.WriteLine("Cadena comprimida    - " + compresion);
             Console.WriteLine("Cadena descomprimida - " + Lzw.decompress(compresion));
             Console.ReadLine();

@@ -59,9 +59,19 @@ namespace Library_LAB2
                 binary_string = binary_string + DecimalaBinario(Convert.ToInt32(values[i]), 8);
             }
             split(binary_string,8);
-            for (int i = 0; i < position.Count; i++)
+            if(div < 8)
             {
-                binary_string = binary_string + DecimalaBinario(position[i], Convert.ToInt32(div));
+                for (int i = 0; i < position.Count; i++)
+                {
+                    binary_string = binary_string + DecimalaBinario(position[i], Convert.ToInt32(div));
+                }
+            }
+            else
+            {
+                for (int i = 0; i < position.Count; i++)
+                {
+                    binary_string = binary_string + DecimalaBinario(position[i], 8);
+                }
             }
             split(binary_string,8);
             return compressed_chain;
@@ -86,7 +96,14 @@ namespace Library_LAB2
             {
                 binary_string = binary_string + DecimalaBinario(Convert.ToInt32(value[i]), 8);
             }
-            split_des(binary_string,first);
+            if(first < 8)
+            {
+                split_des(binary_string, first);
+            }
+            else
+            {
+                split_des(binary_string, 8);
+            }
             return decompressed_chain;
         }
         public void Cod_Decimal_des(char[] binario) //convertir los binarios a decimales
@@ -102,21 +119,17 @@ namespace Library_LAB2
             int temp = valor_decimal; //enviar el decimal
             string done = null;
 
-            if (tableLzw_des.ContainsKey(temp))
+            tableLzw_des.TryGetValue(temp, out done);
+            union += done[0];
+            if (!tableLzw.ContainsKey(union))
             {
-                tableLzw_des.TryGetValue(temp, out done);
-                union += done;
-                if (!tableLzw.ContainsKey(union))
-                {
-                    tableLzw.Add(union,tableLzw.Count());
-                    tableLzw_des.Add(tableLzw_des.Count()+1,union);
-                    union = done;
-                }
+                tableLzw.Add(union, tableLzw.Count());
+                tableLzw_des.Add(tableLzw_des.Count() + 1, union);
+                union = done;
             }
-
             decompressed_chain += done;
         }
-        public void BinaryToDecimal_des(string value) // separar el buffer y enviarlo como decimales
+        public void BinaryToDecimal_des(string value,int count) // separar el buffer y enviarlo como decimales
         {
             char[] binario = new char[8]; //obtiene un codigo binario
             int begin = 0;
@@ -135,29 +148,29 @@ namespace Library_LAB2
         void split_des(string value, int number)
         {
             string temp = null;
-            if (number < value.Length)
+            if (value.Length > number - 1)
             {
-                if (value.Length > number - 1)
+                if (binary_string.Length > number - 1)
                 {
-                    if (binary_string.Length > number - 1)
+                    temp = binary_string.Substring(0, number);
+                    binary_string = binary_string.Substring(number, binary_string.Length - number);
+                    if (Convert.ToInt32(temp) != 0)
                     {
-                        temp = binary_string.Substring(0, number);
-                        binary_string = binary_string.Substring(number, binary_string.Length - number);
-                        BinaryToDecimal_des(temp);
+                        BinaryToDecimal_des(temp,second);
                         split_des(binary_string, number);
                     }
                 }
-                else if (value.Length > 0)
+            }
+            else if (value.Length > 0)
+            {
+                int rest = 8 - value.Length;
+                for (int i = 0; i < rest; i++)
                 {
-                    int rest = 8 - value.Length;
-                    for (int i = 0; i < rest; i++)
-                    {
-                        value = value + '0';
-                    }
-                    binary_string = value;
-
-                    split_des(value, number);
+                    value = value + '0';
                 }
+                binary_string = value;
+
+                split_des(value, number);
             }
         }
         void split(string value, int number)
