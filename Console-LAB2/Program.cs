@@ -16,10 +16,10 @@ namespace Console_LAB2
             //Console.WriteLine("Cadena comprimida    - " + compresion);
             //Console.WriteLine("Cadena descomprimida - " + Huffman.Decompress(compresion));
             string valueTolzw = "WABBAWABBAWABBAWABBA";
-            string compresion = Lzw.compress(valueTolzw);
+            string compresion = Lzw.Compress(valueTolzw);
             Console.WriteLine("Cadena original      - WABBAWABBAWABBAWABBA");
             Console.WriteLine("Cadena comprimida    - " + compresion);
-            Console.WriteLine("Cadena descomprimida - " + Lzw.decompress(compresion));
+            Console.WriteLine("Cadena descomprimida - " + Lzw.Decompress(compresion));
             Console.ReadLine();
         }
     }

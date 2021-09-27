@@ -5,7 +5,7 @@ using System.Linq;
 
 namespace Library_LAB2
 {
-    public class Lzw
+    public class Lzw : ICompressor
     {
         //SortedDictionary<string, int> tableLzw = new SortedDictionary<string, int>();
         Dictionary<string, int> tableLzw = new Dictionary<string, int>();
@@ -21,7 +21,7 @@ namespace Library_LAB2
         int second = 1;
         int count = 0;
         int temp = 0;
-        public string compress(string value)
+        public string Compress(string value)
         {
             for (int i = 0; i < value.Length; i++)
             {            
@@ -76,7 +76,7 @@ namespace Library_LAB2
             split(binary_string,8);
             return compressed_chain;
         }
-        public string decompress(string value)
+        public string Decompress(string value)
         {
             position.Clear();
             binary_string = null;
