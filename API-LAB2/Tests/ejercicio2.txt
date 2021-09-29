@@ -1,0 +1,1 @@
+'Console-LAB2.exe' (CoreCLR: clrhost): 'C:Program FilesdotnetsharedMicrosoft.NETCore.App3.1.18System.Linq.dll' cargado. Se omitió la carga de símbolos. El módulo está optimizado y la opción del depurador 'Sólo mi código' está habilitada.

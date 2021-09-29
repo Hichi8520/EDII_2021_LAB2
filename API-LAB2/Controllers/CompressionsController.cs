@@ -33,8 +33,11 @@ namespace API_LAB2.Controllers
             if (!System.IO.File.Exists(pathHistorial))
             {
                 System.IO.File.Create(pathHistorial);
+                return null;
             }
             string cadenaHistorial = System.IO.File.ReadAllText(pathHistorial);
+
+            if (cadenaHistorial.Length == 0) return null;
 
             string[] cadenas = cadenaHistorial.Split('/');
             List<CompressionInfo> InfoList = new List<CompressionInfo>();
