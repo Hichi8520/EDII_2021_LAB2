@@ -15,9 +15,9 @@ namespace Console_LAB2
             //Console.WriteLine("Cadena original      - ddabdccedchafbadgdcgabgccddbcdgg");
             //Console.WriteLine("Cadena comprimida    - " + compresion);
             //Console.WriteLine("Cadena descomprimida - " + Huffman.Decompress(compresion));
-            string valueTolzw = "WABBAWABBAWABBAWABBA";
+            string valueTolzw = "'Console-LAB2.exe' (CoreCLR: clrhost): 'C:Program FilesdotnetsharedMicrosoft.NETCore.App3.1.18System.Linq.dll' cargado. Se omitió la carga de símbolos. El módulo está optimizado y la opción del depurador 'Sólo mi código' está habilitada.";
             string compresion = Lzw.Compress(valueTolzw);
-            Console.WriteLine("Cadena original      - WABBAWABBAWABBAWABBA");
+            Console.WriteLine("Cadena original      - 'Console-LAB2.exe'(CoreCLR: clrhost): 'C:Program FilesdotnetsharedMicrosoft.NETCore.App3.1.18System.Linq.dll' cargado.Se omitió la carga de símbolos.El módulo está optimizado y la opción del depurador 'Sólo mi código' está habilitada.");
             Console.WriteLine("Cadena comprimida    - " + compresion);
             Console.WriteLine("Cadena descomprimida - " + Lzw.Decompress(compresion));
             Console.ReadLine();

@@ -17,3 +17,13 @@ C:\Users\hichi\Documents\GitHub\EDII_2021_LAB2\Library-LAB2\obj\Debug\netcoreapp
 C:\Users\hichi\Documents\GitHub\EDII_2021_LAB2\Library-LAB2\obj\Debug\netcoreapp3.1\Library-LAB2.csproj.CoreCompileInputs.cache
 C:\Users\hichi\Documents\GitHub\EDII_2021_LAB2\Library-LAB2\obj\Debug\netcoreapp3.1\Library-LAB2.dll
 C:\Users\hichi\Documents\GitHub\EDII_2021_LAB2\Library-LAB2\obj\Debug\netcoreapp3.1\Library-LAB2.pdb
+E:\Mis Documentos\URL\Ciclo 2021\2do\ESTII\Lab\EDII_2021_LAB2\Library-LAB2\bin\Debug\netcoreapp3.1\Library-LAB2.deps.json
+E:\Mis Documentos\URL\Ciclo 2021\2do\ESTII\Lab\EDII_2021_LAB2\Library-LAB2\bin\Debug\netcoreapp3.1\Library-LAB2.dll
+E:\Mis Documentos\URL\Ciclo 2021\2do\ESTII\Lab\EDII_2021_LAB2\Library-LAB2\bin\Debug\netcoreapp3.1\Library-LAB2.pdb
+E:\Mis Documentos\URL\Ciclo 2021\2do\ESTII\Lab\EDII_2021_LAB2\Library-LAB2\obj\Debug\netcoreapp3.1\Library-LAB2.csproj.AssemblyReference.cache
+E:\Mis Documentos\URL\Ciclo 2021\2do\ESTII\Lab\EDII_2021_LAB2\Library-LAB2\obj\Debug\netcoreapp3.1\Library-LAB2.GeneratedMSBuildEditorConfig.editorconfig
+E:\Mis Documentos\URL\Ciclo 2021\2do\ESTII\Lab\EDII_2021_LAB2\Library-LAB2\obj\Debug\netcoreapp3.1\Library-LAB2.AssemblyInfoInputs.cache
+E:\Mis Documentos\URL\Ciclo 2021\2do\ESTII\Lab\EDII_2021_LAB2\Library-LAB2\obj\Debug\netcoreapp3.1\Library-LAB2.AssemblyInfo.cs
+E:\Mis Documentos\URL\Ciclo 2021\2do\ESTII\Lab\EDII_2021_LAB2\Library-LAB2\obj\Debug\netcoreapp3.1\Library-LAB2.csproj.CoreCompileInputs.cache
+E:\Mis Documentos\URL\Ciclo 2021\2do\ESTII\Lab\EDII_2021_LAB2\Library-LAB2\obj\Debug\netcoreapp3.1\Library-LAB2.dll
+E:\Mis Documentos\URL\Ciclo 2021\2do\ESTII\Lab\EDII_2021_LAB2\Library-LAB2\obj\Debug\netcoreapp3.1\Library-LAB2.pdb

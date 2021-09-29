@@ -27,23 +27,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\hichi\\.nuget\\packages\\": {},
-    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
+    "C:\\Users\\ericd\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\hichi\\Documents\\GitHub\\EDII_2021_LAB2\\Console-LAB2\\Console-LAB2.csproj",
+      "projectUniqueName": "E:\\Mis Documentos\\URL\\Ciclo 2021\\2do\\ESTII\\Lab\\EDII_2021_LAB2\\Console-LAB2\\Console-LAB2.csproj",
       "projectName": "Console-LAB2",
-      "projectPath": "C:\\Users\\hichi\\Documents\\GitHub\\EDII_2021_LAB2\\Console-LAB2\\Console-LAB2.csproj",
-      "packagesPath": "C:\\Users\\hichi\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\hichi\\Documents\\GitHub\\EDII_2021_LAB2\\Console-LAB2\\obj\\",
+      "projectPath": "E:\\Mis Documentos\\URL\\Ciclo 2021\\2do\\ESTII\\Lab\\EDII_2021_LAB2\\Console-LAB2\\Console-LAB2.csproj",
+      "packagesPath": "C:\\Users\\ericd\\.nuget\\packages\\",
+      "outputPath": "E:\\Mis Documentos\\URL\\Ciclo 2021\\2do\\ESTII\\Lab\\EDII_2021_LAB2\\Console-LAB2\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-      ],
       "configFilePaths": [
-        "C:\\Users\\hichi\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\ericd\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -55,9 +51,10 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
           "projectReferences": {
-            "C:\\Users\\hichi\\Documents\\GitHub\\EDII_2021_LAB2\\Library-LAB2\\Library-LAB2.csproj": {
-              "projectPath": "C:\\Users\\hichi\\Documents\\GitHub\\EDII_2021_LAB2\\Library-LAB2\\Library-LAB2.csproj"
+            "E:\\Mis Documentos\\URL\\Ciclo 2021\\2do\\ESTII\\Lab\\EDII_2021_LAB2\\Library-LAB2\\Library-LAB2.csproj": {
+              "projectPath": "E:\\Mis Documentos\\URL\\Ciclo 2021\\2do\\ESTII\\Lab\\EDII_2021_LAB2\\Library-LAB2\\Library-LAB2.csproj"
             }
           }
         }
@@ -70,6 +67,7 @@
     },
     "frameworks": {
       "netcoreapp3.1": {
+        "targetAlias": "netcoreapp3.1",
         "imports": [
           "net461",
           "net462",
@@ -85,7 +83,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.413\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.400\\RuntimeIdentifierGraph.json"
       }
     }
   }
